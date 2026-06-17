@@ -1,0 +1,44 @@
+
+--------------------------KAFKA ON WINDOWS-----------------
+
+
+ https://kafka.apache.org/downloads
+
+-------------------------------
+https://archive.apache.org/dist/kafka/3.0.0/
+kafka_2.13-2.8.0.tgz     
+For windows untar at a root folder
+
+
+C:\kafka>start .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+
+
+To start kafka
+
+C:\kafka>start .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+
+Use Kafka-console-consumer and producer for TESTING purpose
+
+Launc a console consumer:
+
+C:\kafka>start .\bin\windows\kafka-console-consumer.bat --bootstrap-server broker:9092 --topic T1
+start .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic T1
+corregido a T4
+start .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic T4
+
+
+b1:9092,b2:9092,b3:9092
+
+
+**Launch a console producer:
+
+C:\kafka>start .\bin\windows\kafka-console-producer.bat --broker-list broker:9092 --topic T4
+deprecado
+start .\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic T4
+esta bien así
+start .\bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic T4
+
+
