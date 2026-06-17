@@ -28,11 +28,7 @@ public class ProductRepository {
 
     @Transactional
     public Product getProduct(String id){
-        String cadena;
-        cadena = String.format("select p from Product p where id=%s", id);
-        List<Product> products = em.createQuery(cadena).getResultList();
-        Product product = products.get(0);
-        return product;
+        return em.find(Product.class, Long.valueOf(id));
     }
 
     @Transactional
@@ -41,4 +37,3 @@ public class ProductRepository {
         return products;
     }
 }
-

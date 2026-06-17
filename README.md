@@ -6,6 +6,12 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Running the application in dev mode
 
+###
+>- curl -X GET http://localhost:8765/product/      -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/product/obtener/1      -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/product/custom/Luis      -H "Accept: application/json"
+>- curl -X DELETE http://localhost:8765/product/1
+
 You can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
@@ -119,4 +125,3 @@ docker image ls
 >- http://localhost:8765/product/
 >- http://localhost:8765/product/obtener/1
 >- http://localhost:8765/product/custom/Luis
-

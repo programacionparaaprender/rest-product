@@ -37,6 +37,13 @@
           }).then(_success, _error);
         };
 
+        $scope.remove = function (product) {
+          $http({
+            method: "DELETE",
+            url: '/product/' + product.id
+          }).then(_success, _error);
+        };
+
         /* Private Methods */
         //HTTP GET- get all products collection
         function _refreshPageData() {
@@ -86,12 +93,14 @@
 
     <h3>Product List</h3>
     <div class="row">
-        <div class="col-4">Name</div>
-        <div class="col-8">Description</div>
+        <div class="col-3">Name</div>
+        <div class="col-7">Description</div>
+        <div class="col-2">Actions</div>
     </div>
     <div class="row" ng-repeat="product in products">
-        <div class="col-4">{{ product.name }}</div>
-        <div class="col-8">{{ product.description }}</div>
+        <div class="col-3">{{ product.name }}</div>
+        <div class="col-7">{{ product.description }}</div>
+        <div class="col-2"><a ng-click="remove(product)" class="btn btn-red">Delete</a></div>
     </div>
 </div>
 
