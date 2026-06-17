@@ -6,11 +6,38 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Running the application in dev mode
 
-###
+### endpoint para probar product
 >- curl -X GET http://localhost:8765/product/      -H "Accept: application/json"
 >- curl -X GET http://localhost:8765/product/obtener/1      -H "Accept: application/json"
 >- curl -X GET http://localhost:8765/product/custom/Luis      -H "Accept: application/json"
 >- curl -X DELETE http://localhost:8765/product/1
+
+### instalar resilience
+>- ./mvnw quarkus:add-extension -Dextension="smallrye-fault-tolerance"
+
+### endpoint para probar resilience
+>- curl -X GET http://localhost:8765/resilient/test-circuit \
+     -H "Accept: text/plain"
+>- curl -X GET http://localhost:8765/resilient/circuit-breaker \
+     -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/resilient/bulkhead \
+     -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/resilient/rate-limiter \
+     -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/resilient/retryApi \
+     -H "Accept: application/json"
+
+### endpoint para probar HilosController
+>- curl -X GET http://localhost:8765/api/hilos/executor-service \
+     -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/api/hilos/thread-pool-executor \
+     -H "Accept: application/json"
+>- curl -X GET http://localhost:8765/api/hilos/rxjava \
+     -H "Accept: text/plain"
+
+### endpoint para probar PageEventController (Messaging)
+>- curl -X GET http://localhost:8765/api/publish/T4/Luis \
+     -H "Accept: application/json"
 
 You can run your application in dev mode that enables live coding using:
 ```shell script
