@@ -6,6 +6,10 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Running the application in dev mode
 
+###
+>- ./mvnw quarkus:add-extension -Dextension="junit5-mockito"
+>- ./mvnw test
+
 ### endpoint para probar product
 >- curl -X GET http://localhost:8765/product/      -H "Accept: application/json"
 >- curl -X GET http://localhost:8765/product/obtener/1      -H "Accept: application/json"
@@ -26,6 +30,14 @@ If you want to learn more about Quarkus, please visit its website: https://quark
      -H "Accept: application/json"
 >- curl -X GET http://localhost:8765/resilient/retryApi \
      -H "Accept: application/json"
+
+### endpoint para probar PayPal
+>- curl -X POST http://localhost:8765/paypal/create-order \
+     -H "Accept: text/plain"
+>- curl -X GET "http://localhost:8765/paypal/success?token=1TT98985P1297633S" \
+     -H "Accept: text/plain"
+>- curl -X GET http://localhost:8765/paypal/cancel \
+     -H "Accept: text/plain"
 
 ### endpoint para probar HilosController
 >- curl -X GET http://localhost:8765/api/hilos/executor-service \
@@ -152,3 +164,33 @@ docker image ls
 >- http://localhost:8765/product/
 >- http://localhost:8765/product/obtener/1
 >- http://localhost:8765/product/custom/Luis
+
+
+
+# Proyecto Apache Kafka con Java 21
+
+Este proyecto demuestra cómo usar Apache Kafka con Java 21, incluyendo características modernas como Virtual Threads.
+
+### curso kafka
+>- https://www.udemy.com/course/kafka-cluster-deployment-and-java-springboot/
+
+## Requisitos Previos
+
+1. Java 21 o superior
+2. Maven 3.6+
+3. Docker y Docker Compose (opcional, para Kafka local)
+4. Git
+5. modificar el server.properties la sección log.dirs=C:/kafka_2.13-2.8.0/data/kafka-logs
+## Configuración del Proyecto
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <repository-url>
+cd kafka-java21-project
+```
+
+### probar endpoint
+>- http://localhost:8080/api/publish/T4/blog
+
+#### login
